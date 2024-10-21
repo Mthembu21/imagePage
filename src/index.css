@@ -1,0 +1,54 @@
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Set a max width for larger screens */
+  height: auto; /* Allow height to adjust based on content */
+  margin: 40px auto; /* Add margin to center the slideshow vertically */
+  text-align: center; /* Center the slideshow horizontally */
+}
+
+.slideshow-image {
+  width: 100%; /* Set width to 100% for responsive images */
+  height: 400px; /* Set a fixed height for the images */
+  object-fit: cover; /* Cover the container while maintaining aspect ratio */
+  border-radius: 10px; /* Add a slight border radius to the image */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow to the image */
+}
+
+.prev-button, .next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px; /* Increase font size for the arrow icons */
+  cursor: pointer;
+  color: #fff; /* Set button color to white */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a subtle text shadow to the buttons */
+  background: none; /* Remove button background */
+  border: none; /* Remove button border */
+}
+
+.prev-button {
+  left: 20px;
+}
+
+.next-button {
+  right: 20px;
+}
+
+.prev-button:hover, .next-button:hover {
+  color: #ccc; /* Set button hover color to light gray */
+}
+
+/* Add media query for mobile layout */
+@media only screen and (max-width: 768px) {
+  .slideshow-image {
+    height: 200px; /* Reduce image height for mobile devices */
+  }
+  .prev-button, .next-button {
+    font-size: 18px; /* Reduce font size for mobile devices */
+  }
+}
+
+.slideshow-image {
+  border: 2px solid red; /* Temporary border for debugging */
+}
