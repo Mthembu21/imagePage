@@ -524,6 +524,92 @@
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios'; // Import Axios for API requests
+
+// const ImageSlideshow = () => {
+//   // State variables
+//   const [images, setImages] = useState([]); // To store image URLs
+//   const [currentSlide, setCurrentSlide] = useState(0); // To track the current slide
+//   const [isPaused, setIsPaused] = useState(false); // To pause the slideshow
+
+//   // Fetch images from the API when the component mounts
+//   useEffect(() => {
+//     const fetchImages = async () => {
+//       try {
+//         const response = await axios.get('https://xpand.onrender.com/api/content/6710f78b64b9de5448554a55', {
+//           headers: {
+//             'Authorization': 'Bearer e9b6c0207ecdd928383296944b2d8ce216a29d29b8c2f5b312de2520ecb8a198'
+//           }
+//         });
+//         console.log('API Response:', response.data); // Log the entire response
+//         if (response.data.gallery && Array.isArray(response.data.gallery)) {
+//           const urls = response.data.gallery.map(item => item.url); // Extract image URLs
+//           console.log('Image URLs:', urls); // Log the image URLs
+//           setImages(urls); // Update state with the URLs
+//         } else {
+//           console.error('Expected an array of pictures but got:', response.data.gallery);
+//         }
+//       } catch (error) {
+//         console.error('Error fetching images:', error); // Log any errors
+//       }
+//     };
+
+//     fetchImages(); // Call the function to fetch images
+//   }, []); // Empty dependency array means this runs once on mount
+
+//   // Handle slideshow interval
+//   useEffect(() => {
+//     if (isPaused || images.length === 0) return; // Don't run if paused or no images
+
+//     const intervalId = setInterval(() => {
+//       setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length); // Cycle through images
+//     }, 4000); // Change slide every 4 seconds
+
+//     return () => clearInterval(intervalId); // Cleanup on unmount or dependency change
+//   }, [isPaused, images.length]); // Dependencies to watch for changes
+
+//   // Navigate to the previous slide
+//   const handlePrevSlide = () => {
+//     setCurrentSlide((prevSlide) => (prevSlide - 1 + images.length) % images.length);
+//   };
+
+//   // Navigate to the next slide
+//   const handleNextSlide = () => {
+//     setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
+//   };
+
+//   return (
+//     <div
+//       className="slideshow-container"
+//       onMouseEnter={() => setIsPaused(true)} // Pause on hover
+//       onMouseLeave={() => setIsPaused(false)} // Resume on mouse leave
+//     >
+//       {images.length > 0 ? (
+//         <img 
+//           src={images[currentSlide]} 
+//           alt={`Slide ${currentSlide + 1}`} 
+//           className="slideshow-image" 
+//           style={{ border: '2px solid red' }} // Temporary border for debugging
+//         />
+//       ) : (
+//         <p>Loading images...</p> // Show loading message
+//       )}
+//       <button className="prev-button" onClick={handlePrevSlide}>
+//         &#x25C0; {/* Left arrow */}
+//       </button>
+//       <button className="next-button" onClick={handleNextSlide}>
+//         &#x25B6; {/* Right arrow */}
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default ImageSlideshow; // Export the component
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Import Axios for API requests
 
@@ -537,7 +623,7 @@ const ImageSlideshow = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get('https://xpand.onrender.com/api/content/6710f78b64b9de5448554a55', {
+        const response = await axios.get('https://cms-backend-w1p9.onrender.com/api/content/6710f78b64b9de5448554a55', {
           headers: {
             'Authorization': 'Bearer e9b6c0207ecdd928383296944b2d8ce216a29d29b8c2f5b312de2520ecb8a198'
           }
@@ -605,4 +691,4 @@ const ImageSlideshow = () => {
   );
 };
 
-export default ImageSlideshow; // Export the component
+export default ImageSlideshow;
